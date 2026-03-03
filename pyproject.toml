@@ -1,6 +1,6 @@
 [project]
 name = "my-package"
-version = "0.1.0"
+dynamic = ["version"]
 description = "Lovely Spam! Wonderful Spam!"
 readme = "README.md"
 authors = [
@@ -25,8 +25,8 @@ classifiers = [
 my-package = "my_package:main"
 
 [build-system]
-requires = ["uv_build>=0.10.7,<0.11.0"]
-build-backend = "uv_build"
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
 
 [dependency-groups]
 dev = [
@@ -43,4 +43,9 @@ changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
 [tool.ruff]
 line-length = 119
 target-version = "py312"
+
+[tool.ruff.lint]
 select = ["E", "F", "B", "C4", "TID", "T20", "INP", "UP", "I", "S", "TCH"]
+
+[tool.hatch.version]
+source = "vcs"
