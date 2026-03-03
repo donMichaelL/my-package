@@ -28,9 +28,19 @@ my-package = "my_package:main"
 requires = ["uv_build>=0.10.7,<0.11.0"]
 build-backend = "uv_build"
 
+[dependency-groups]
+dev = [
+    "pre-commit>=4.5.1",
+]
+
 [project.urls]
 homepage = "https://example.com"
 documentation = "https://readthedocs.org"
 repository = "https://github.com/me/spam.git"
 "Bug Tracker" = "https://github.com/me/spam/issues"
 changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
+
+[tool.ruff]
+line-length = 119
+target-version = "py312"
+select = ["E", "F", "B", "C4", "TID", "T20", "INP", "UP", "I", "S", "TCH"]
