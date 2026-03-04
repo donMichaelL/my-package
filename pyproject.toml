@@ -1,5 +1,5 @@
 [project]
-name = "my-package"
+name = "my-package-mloukeris"
 dynamic = ["version"]
 description = "Lovely Spam! Wonderful Spam!"
 readme = "README.md"
@@ -15,7 +15,7 @@ dependencies = [
 ]
 license = "MIT"
 license-files = ["LICEN[CS]E*"]
-keywords = ["example", "my-package"]
+keywords = ["example", "my-package-mloukeris"]
 classifiers = [
   "Development Status :: 4 - Beta",
   "License :: OSI Approved :: MIT License",
@@ -29,6 +29,9 @@ my-package = "my_package.cli:main"
 [build-system]
 requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/my_package"]
 
 [dependency-groups]
 dev = [
