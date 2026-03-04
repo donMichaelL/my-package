@@ -10,7 +10,9 @@ maintainers = [
    { name = "Michael Loukeris", email = "michael.loukeris@gmail.com" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "click>=8.3.1",
+]
 license = "MIT"
 license-files = ["LICEN[CS]E*"]
 keywords = ["example", "my-package"]
@@ -22,7 +24,7 @@ classifiers = [
 ]
 
 [project.scripts]
-my-package = "my_package:main"
+my-package = "my_package.cli:main"
 
 [build-system]
 requires = ["hatchling", "hatch-vcs"]
