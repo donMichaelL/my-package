@@ -162,7 +162,7 @@ wheels = [
 ]
 
 [[package]]
-name = "my-package"
+name = "my-package-mloukeris"
 source = { editable = "." }
 dependencies = [
     { name = "click" },
