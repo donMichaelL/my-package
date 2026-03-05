@@ -10,6 +10,7 @@ theme:
 plugins:
   - search
   - include-markdown
+  - macros
   - mkdocstrings:
       handlers:
         python:
