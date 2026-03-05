@@ -3,7 +3,6 @@ from importlib.metadata import PackageNotFoundError, version
 
 import click
 
-logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
 
@@ -14,10 +13,20 @@ def get_version() -> str:
         return "unknown"
 
 
-@click.command()
+@click.group()
 @click.version_option(version=get_version(), prog_name="my-package")
-def main() -> None:
-    pass
+@click.option("-v", "--verbose", is_flag=True, help="Enable verbose debug logging.")
+def main(verbose: bool) -> None:
+    log_level = logging.DEBUG if verbose else logging.INFO
+    logging.basicConfig(level=log_level, format="%(levelname)s: %(message)s", force=True)
+    logger.debug("Logging system initialized in CLI.")
+
+
+@main.command(name="coffee", hidden=True)
+def coffee() -> None:
+    """This docstring won't show up in the help menu!"""
+    logger.info("☕ I am a teapot. Just kidding, here is your virtual coffee!")
+    logger.debug("Checking virtual water temperature... perfect.")
 
 
 if __name__ == "__main__":
