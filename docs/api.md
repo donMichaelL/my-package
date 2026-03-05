@@ -1,3 +1,1 @@
-::: my_package
-
-hello
+::: my_package.core
