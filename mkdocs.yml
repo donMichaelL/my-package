@@ -1,11 +1,16 @@
 site_name: my-package-mloukeris
 
+repo_url: https://github.com/donMichaelL/my-package
+repo_name: donMichaelL/my-package
+
 theme:
   name: material
   palette:
     primary: green
   font:
     text: Roboto
+  icon:
+    repo: fontawesome/brands/github
 
 plugins:
   - search
