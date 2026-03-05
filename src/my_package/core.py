@@ -1,18 +1,24 @@
-# src/my_package/core.py
+from .exceptions import InvalidInputError
 
 
-def add_numbers(a: int, b: int) -> int:
+def add_numbers(a, b) -> int:
     """
-    Adds two integers together.
-
-    This is a simple demonstration function that takes two numbers
-    and returns their sum.
+    Adds two numbers together.
 
     Args:
-        a (int): The first number to add.
-        b (int): The second number to add.
+        a: The first number.
+        b: The second number.
 
     Returns:
-        int: The total sum of the two numbers.
+        int: The total sum.
+
+    Raises:
+        InvalidInputError: If either argument cannot be converted to an integer.
     """
-    return a + b
+    try:
+        val_a = int(a)
+        val_b = int(b)
+    except ValueError as e:
+        raise InvalidInputError("Both arguments must be valid numbers.") from e
+
+    return val_a + val_b

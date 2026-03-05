@@ -1,10 +1,16 @@
-from my_package import add_numbers
+import pytest
+
+from my_package import InvalidInputError, add_numbers
 
 
-def test_add_numbers():
-    """Test that the add_numbers function correctly sums two integers."""
-    result = add_numbers(2, 3)
-    assert result == 5
+def test_add_numbers_success():
+    """Test that the add_numbers function correctly sums two positive integers."""
+    assert add_numbers(2, 3) == 5
 
-    # Let's test negative numbers too!
-    assert add_numbers(-1, 1) == 0
+
+def test_add_numbers_with_invalid_string():
+    """Test that passing non-numbers raises our custom InvalidInputError."""
+    with pytest.raises(InvalidInputError) as exc_info:
+        add_numbers("apple", 5)
+
+    assert str(exc_info.value) == "Both arguments must be valid numbers."
