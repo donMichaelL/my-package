@@ -1,0 +1,25 @@
+site_name: my-package-mloukeris
+
+theme:
+  name: material
+  palette:
+    primary: green
+  font:
+    text: Roboto
+
+plugins:
+  - search
+  - include-markdown
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: google
+
+markdown_extensions:
+  - mkdocs-click
+
+nav:
+  - Home: index.md
+  - CLI Reference: cli.md
+  - API Reference: api.md
